@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://c0ruq4fpjuh0n"]
+
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="1_vk0x7"]
+
+[resource]
+atlas = ExtResource("1_vk0x7")
+region = Rect2(0, 2, 208, 316)

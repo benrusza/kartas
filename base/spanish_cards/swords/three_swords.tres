@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://c6obfd1rp6yr0"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_36k0l"]
-[ext_resource type="Texture2D" uid="uid://5r635ms8ot45" path="res://spanish_deck/23.PNG" id="2_ihonp"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_ihonp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0fiu"]
+atlas = ExtResource("2_ihonp")
+region = Rect2(416, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_36k0l")
+order_num = 3
 name = "Three of Swords"
-texture = ExtResource("2_ihonp")
+texture = SubResource("AtlasTexture_p0fiu")
 card_suit = 3
 value = 3
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

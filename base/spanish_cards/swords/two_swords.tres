@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://d2tnw677rreo8"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_mjqpu"]
-[ext_resource type="Texture2D" uid="uid://c4g78orq61kxa" path="res://spanish_deck/22.PNG" id="2_636nb"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_636nb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx55s"]
+atlas = ExtResource("2_636nb")
+region = Rect2(208, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_mjqpu")
+order_num = 2
 name = "Two of Swords"
-texture = ExtResource("2_636nb")
+texture = SubResource("AtlasTexture_nx55s")
 card_suit = 3
 value = 2
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

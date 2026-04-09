@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4op5wjjaj5b8"]
 
 [ext_resource type="Script" uid="uid://dm115oleoggyt" path="res://addons/simple_cards/card/card_layout/card_layout.gd" id="1_0a68r"]
-[ext_resource type="Texture2D" uid="uid://bau3ktln70ng5" path="res://spanish_deck/back.PNG" id="3_es1wl"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_x6cnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a68r"]
 bg_color = Color(0, 0.72156864, 0.3019608, 0.4862745)
@@ -16,10 +16,13 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 16
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_twkaf"]
+atlas = ExtResource("2_x6cnq")
+region = Rect2(208, 1276, 207, 318)
+
 [node name="CardLayout" type="SubViewportContainer" unique_id=1194332146]
 offset_right = 80.0
 offset_bottom = 112.0
-scale = Vector2(1.4, 1.4)
 script = ExtResource("1_0a68r")
 metadata/is_layout = true
 metadata/layout_id = "spanish_layout_back"
@@ -39,7 +42,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0a68r")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=753930002]
-position = Vector2(40.607147, 55.82143)
-scale = Vector2(1.0988259, 0.9968395)
-texture = ExtResource("3_es1wl")
+[node name="Texture" type="TextureRect" parent="SubViewport" unique_id=485507747]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_twkaf")
+expand_mode = 1

@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://dbg65bar6neha"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_hnjks"]
-[ext_resource type="Texture2D" uid="uid://dmqxrf1vjadll" path="res://spanish_deck/26.PNG" id="2_qfwgw"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_qfwgw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ts8"]
+atlas = ExtResource("2_qfwgw")
+region = Rect2(1040, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_hnjks")
+order_num = 6
 name = "Six of Swords"
-texture = ExtResource("2_qfwgw")
+texture = SubResource("AtlasTexture_w1ts8")
 card_suit = 3
 value = 6
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

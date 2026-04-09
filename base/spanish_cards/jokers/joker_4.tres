@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://btrq8c6mv6sdi"]
+
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_fxe4k"]
+[ext_resource type="Script" uid="uid://cc5pdg4yect1y" path="res://base/spanish_cards/jokers/scripts/add_discard.gd" id="1_yhe08"]
+[ext_resource type="Texture2D" uid="uid://ctn2wcrbg2ywo" path="res://joker_deck/smile.png" id="3_yhe08"]
+
+[resource]
+script = ExtResource("1_fxe4k")
+name = "4"
+texture = ExtResource("3_yhe08")
+joker_mode = 1
+value = 4
+description = "Descarte +1"
+jokerScript = ExtResource("1_yhe08")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

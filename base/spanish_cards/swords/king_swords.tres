@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://b28isdnesylah"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_0hejg"]
-[ext_resource type="Texture2D" uid="uid://c60ede2y8b4ao" path="res://spanish_deck/30.PNG" id="2_jumd7"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_jumd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oygtf"]
+atlas = ExtResource("2_jumd7")
+region = Rect2(2288, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_0hejg")
+order_num = 12
 name = "King of Swords"
-texture = ExtResource("2_jumd7")
+texture = SubResource("AtlasTexture_oygtf")
 card_suit = 3
 value = 12
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

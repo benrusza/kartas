@@ -1,26 +1,27 @@
 [gd_scene format=3 uid="uid://dy2eu1e1jgyl6"]
 
 [ext_resource type="Script" uid="uid://cj785g0sjhsbv" path="res://base/spanish_cards/spanish_layout.gd" id="1_ce065"]
-[ext_resource type="Texture2D" uid="uid://dvtpdl3tfam0w" path="res://spanish_deck/1.PNG" id="2_av077"]
+[ext_resource type="StyleBox" uid="uid://ck1ktlxakxdwb" path="res://Assets/cardstyle.tres" id="2_3frem"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_ce065"]
+[ext_resource type="StyleBox" uid="uid://cqkpa4i3o60xk" path="res://Assets/corner.tres" id="4_hut73"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jahet"]
-bg_color = Color(1, 0.9766667, 0.9, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.14044741, 0.14044747, 0.14044735, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 16
+[sub_resource type="AtlasTexture" id="AtlasTexture_av077"]
+atlas = ExtResource("2_ce065")
+region = Rect2(2080, 638, 207, 318)
+
+[sub_resource type="Gradient" id="Gradient_7uhre"]
+offsets = PackedFloat32Array(0.1369863, 0.84931505)
+colors = PackedColorArray(0.87119293, 0.44868654, 0.95350534, 1, 0.84436935, 0.77154946, 0.64891756, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ce065"]
+gradient = SubResource("Gradient_7uhre")
 
 [node name="CardLayout" type="SubViewportContainer" unique_id=1445274384]
-offset_right = 80.0
-offset_bottom = 112.0
-scale = Vector2(1.4, 1.4)
+offset_right = 90.0
+offset_bottom = 132.0
 script = ExtResource("1_ce065")
+tooltip_offset = Vector2(-100, 132)
+point_offset = Vector2(-1, -32)
 metadata/is_layout = true
 metadata/layout_id = "spanish_layout"
 metadata/tags = ["front"]
@@ -29,7 +30,7 @@ metadata/_custom_type_script = "uid://dm115oleoggyt"
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1120670093]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(80, 112)
+size = Vector2i(120, 164)
 render_target_update_mode = 4
 
 [node name="CardColor" type="PanelContainer" parent="SubViewport" unique_id=605374910]
@@ -39,15 +40,85 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jahet")
+theme_override_styles/panel = ExtResource("2_3frem")
 
 [node name="Texture" type="TextureRect" parent="SubViewport" unique_id=854792453]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.5
-offset_bottom = 0.5
+offset_left = 4.0
+offset_top = 3.0
+offset_right = -4.2350006
+offset_bottom = -4.125
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_av077")
+texture = SubResource("AtlasTexture_av077")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport" unique_id=253138598]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 28.0
+offset_bottom = 29.0
+theme_override_styles/panel = ExtResource("4_hut73")
+
+[node name="PanelContainer2" type="PanelContainer" parent="SubViewport" unique_id=1891930897]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.1415927
+theme_override_styles/panel = ExtResource("4_hut73")
+
+[node name="LabelNumber" type="Label" parent="SubViewport" unique_id=364669259]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 25.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11"
+horizontal_alignment = 1
+
+[node name="LabelNumber2" type="Label" parent="SubViewport" unique_id=327602001]
+unique_name_in_owner = true
+offset_left = 117.0
+offset_top = 161.0
+offset_right = 138.0
+offset_bottom = 184.0
+rotation = 3.1415927
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11"
+horizontal_alignment = 1
+
+[node name="BoxDescription" type="TextureRect" parent="." unique_id=1243647910]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 64)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_ce065")
+
+[node name="LabelDescription" type="Label" parent="BoxDescription" unique_id=25628527]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 107.0
+offset_bottom = 39.0
+text = "Description"
+
+[node name="LabelPoint" type="Label" parent="." unique_id=546201152]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "+ValueNotSet"

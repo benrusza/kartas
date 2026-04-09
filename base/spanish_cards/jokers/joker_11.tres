@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://bbcbjtf05ixgy"]
+
+[ext_resource type="Script" uid="uid://co5bci51td1p3" path="res://base/spanish_cards/jokers/scripts/add_play_discard_hand.gd" id="1_s3xh8"]
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="2_1b60e"]
+[ext_resource type="Texture2D" uid="uid://c41exrdy5fb2q" path="res://joker_deck/fraterossmortem_by_technojunk.png" id="3_s3xh8"]
+
+[resource]
+script = ExtResource("2_1b60e")
+name = "0"
+texture = ExtResource("3_s3xh8")
+joker_mode = 1
+value = 10
+description = "elimina una carta al acercala al comodin"
+jokerScript = ExtResource("1_s3xh8")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

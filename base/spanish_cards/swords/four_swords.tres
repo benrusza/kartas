@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://ha7it7eailcv"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_2xe4a"]
-[ext_resource type="Texture2D" uid="uid://45jasvr75654" path="res://spanish_deck/24.PNG" id="2_tkuan"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_tkuan"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg1hs"]
+atlas = ExtResource("2_tkuan")
+region = Rect2(624, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_2xe4a")
+order_num = 4
 name = "Four of Swords"
-texture = ExtResource("2_tkuan")
+texture = SubResource("AtlasTexture_sg1hs")
 card_suit = 3
 value = 4
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

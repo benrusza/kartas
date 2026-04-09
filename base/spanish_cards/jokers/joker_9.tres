@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://ygmo2idae6l5"]
+
+[ext_resource type="Script" uid="uid://ba51fsjlivr8u" path="res://base/spanish_cards/jokers/scripts/sumplus.gd" id="1_biigm"]
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="2_jjuw4"]
+[ext_resource type="Texture2D" uid="uid://cdgigcsersxl2" path="res://joker_deck/Aalunya_by_dusk.png" id="3_biigm"]
+
+[resource]
+script = ExtResource("2_jjuw4")
+name = "+50"
+texture = ExtResource("3_biigm")
+joker_mode = 3
+value = 50
+description = "+50 puntos al anotar"
+jokerScript = ExtResource("1_biigm")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

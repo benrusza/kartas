@@ -3,14 +3,18 @@
 [ext_resource type="Script" uid="uid://bmc1k8rf2430l" path="res://base/balatro/kartas.gd" id="1_itsbb"]
 [ext_resource type="Resource" uid="uid://c622verlvs7jk" path="res://base/spanish_cards/spanish_deck.tres" id="2_rdupq"]
 [ext_resource type="Script" uid="uid://bisyk4bowdvsf" path="res://addons/simple_cards/deck/manager/card_deck_manager.gd" id="3_05s0h"]
-[ext_resource type="Script" uid="uid://dpy5dre485pik" path="res://base/balatro/manager_game.gd" id="3_rdupq"]
+[ext_resource type="Resource" uid="uid://bf07swwidvp6h" path="res://base/spanish_cards/joker_deck.tres" id="4_5jk62"]
 [ext_resource type="Script" uid="uid://f3ybsxom5cmo" path="res://base/balatro/balatro_card_hand.gd" id="4_nx5jh"]
 [ext_resource type="Script" uid="uid://cgtxv1fnflwfu" path="res://addons/simple_cards/hand/shape/premade_shapes/arc_shape.gd" id="5_5jk62"]
 [ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/pile/card_pile.gd" id="6_m7y0m"]
+[ext_resource type="Script" path="res://JokerHand.gd" id="6_rdupq"]
+[ext_resource type="Resource" uid="uid://j6o1k24stkxd" path="res://LineJokerShape.tres" id="7_05s0h"]
 [ext_resource type="Script" uid="uid://cle02hultetj5" path="res://addons/simple_cards/hand/shape/premade_shapes/stack_shape.gd" id="7_17jkb"]
 [ext_resource type="Script" uid="uid://bbi8i6vef3f6y" path="res://addons/simple_cards/hand/card_hand.gd" id="8_w1hpb"]
 [ext_resource type="Script" uid="uid://b1s6x4iyt2pps" path="res://addons/simple_cards/hand/shape/premade_shapes/line_shape.gd" id="9_pr677"]
 [ext_resource type="Script" uid="uid://qd3kangeiqg" path="res://addons/simple_cards/hand/shape/premade_shapes/grid_shape.gd" id="10_dbel8"]
+[ext_resource type="Script" path="res://base/balatro/played_hand.gd" id="13_5jk62"]
+[ext_resource type="Script" path="res://base/background.gd" id="15_m7y0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6hid"]
 bg_color = Color(0.16078432, 0.2784314, 0.20784314, 1)
@@ -20,10 +24,10 @@ border_width_right = 16
 border_width_bottom = 16
 border_color = Color(0.32156864, 0.19607843, 0.19215687, 1)
 
-[sub_resource type="Resource" id="Resource_frvav"]
+[sub_resource type="Resource" id="Resource_m7y0m"]
 script = ExtResource("5_5jk62")
-arc_angle = 64.0
-arc_orientation = 269.0
+arc_radius = 600.0
+arc_angle = 10.0
 card_spacing = 100.0
 metadata/_custom_type_script = "uid://cgtxv1fnflwfu"
 
@@ -51,15 +55,7 @@ metadata/_custom_type_script = "uid://b1s6x4iyt2pps"
 script = ExtResource("1_itsbb")
 deck = ExtResource("2_rdupq")
 use_stagger_draw = false
-
-[node name="ManagerGame" type="Control" parent="." unique_id=755144848]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 45.0
-offset_top = 278.0
-offset_right = 85.0
-offset_bottom = 318.0
-script = ExtResource("3_rdupq")
+goal_points = 300
 
 [node name="CardDeckManager" type="Node" parent="." unique_id=1532482660 node_paths=PackedStringArray("starting_pile")]
 physics_interpolation_mode = 2
@@ -67,6 +63,23 @@ script = ExtResource("3_05s0h")
 deck = ExtResource("2_rdupq")
 starting_pile = NodePath("../MarginContainer/Draw")
 metadata/_custom_type_script = "uid://bisyk4bowdvsf"
+
+[node name="JokerDeckManager" type="Node" parent="." unique_id=1167006328 node_paths=PackedStringArray("starting_pile")]
+physics_interpolation_mode = 2
+script = ExtResource("3_05s0h")
+deck = ExtResource("4_5jk62")
+starting_pile = NodePath("../MarginContainer/Jokers")
+metadata/_custom_type_script = "uid://bisyk4bowdvsf"
+
+[node name="Background" type="TextureRect" parent="." unique_id=483530468]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_m7y0m")
+gradient_path = "res://gradient_bk_game.tres"
+speed = 0.1
 
 [node name="BGPanel" type="Panel" parent="." unique_id=613198165]
 anchors_preset = 15
@@ -77,6 +90,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m6hid")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1401323095]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -88,6 +102,7 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1443184500]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -145,7 +160,6 @@ layout_mode = 2
 [node name="LabelMultiplierName" type="Label" parent="MarginContainer/VBoxContainerPoints/HBoxContainer3" unique_id=599560884]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Doble pareja "
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainerPoints" unique_id=691840242]
 layout_mode = 2
@@ -154,12 +168,10 @@ size_flags_horizontal = 4
 [node name="LabelHandPoints" type="Label" parent="MarginContainer/VBoxContainerPoints/HBoxContainer4" unique_id=1966555593]
 unique_name_in_owner = true
 layout_mode = 2
-text = "10"
 
 [node name="LabelMultiplier" type="Label" parent="MarginContainer/VBoxContainerPoints/HBoxContainer4" unique_id=150394109]
 unique_name_in_owner = true
 layout_mode = 2
-text = "x 2"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=340012948]
 layout_mode = 2
@@ -206,7 +218,7 @@ text = "Play"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/margin_bottom = 80
+theme_override_constants/margin_bottom = 40
 
 [node name="BalatroHand" type="Control" parent="MarginContainer/MarginContainer" unique_id=1465754422]
 unique_name_in_owner = true
@@ -214,8 +226,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("4_nx5jh")
-shape = SubResource("Resource_frvav")
+shape = SubResource("Resource_m7y0m")
 max_hand_size = 7
+metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer" unique_id=944558501]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 30
+
+[node name="JokersHand" type="Control" parent="MarginContainer/MarginContainer2" unique_id=23713587]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("6_rdupq")
+shape = ExtResource("7_05s0h")
+max_hand_size = 5
 metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=500232402]
@@ -248,6 +276,18 @@ metadata/_custom_type_script = "uid://d2l8uaoel5whd"
 
 [node name="Discard" type="Control" parent="MarginContainer" unique_id=324329923]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("6_m7y0m")
+shape = SubResource("Resource_asqof")
+show_cards = true
+face_up = true
+metadata/_custom_type_script = "uid://d2l8uaoel5whd"
+
+[node name="Jokers" type="Control" parent="MarginContainer" unique_id=14969913]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -296,11 +336,27 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("8_w1hpb")
+script = ExtResource("13_5jk62")
 shape = SubResource("Resource_m6hid")
 enable_reordering = false
 metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
 
-[node name="Container" type="Container" parent="MarginContainer/VBoxContainer3" unique_id=1802910964]
-custom_minimum_size = Vector2(100, 100)
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer3" unique_id=796681701]
+custom_minimum_size = Vector2(1, 20)
 layout_mode = 2
+
+[node name="Wingame" type="MarginContainer" parent="." unique_id=1678473108]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wingame" unique_id=1823634137]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Wingame/VBoxContainer" unique_id=21287188]
+layout_mode = 2
+text = "hola"

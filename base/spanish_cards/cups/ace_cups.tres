@@ -1,11 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://deo2b80cmugrj"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_ecqih"]
-[ext_resource type="Texture2D" uid="uid://bpotdjtdowsol" path="res://spanish_deck/11.PNG" id="2_5iu25"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_5iu25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acpl4"]
+atlas = ExtResource("2_5iu25")
+region = Rect2(0, 319, 207, 318)
 
 [resource]
 script = ExtResource("1_ecqih")
+order_num = 1
 name = "Ace of Cups"
-texture = ExtResource("2_5iu25")
+texture = SubResource("AtlasTexture_acpl4")
 card_suit = 2
+value = 20
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

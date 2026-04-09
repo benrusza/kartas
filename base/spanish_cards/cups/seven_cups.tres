@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://cikmctuf5lbo7"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_76vpy"]
-[ext_resource type="Texture2D" uid="uid://d2dbgru4v1wib" path="res://spanish_deck/17.PNG" id="2_ncxvy"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_ncxvy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6o55"]
+atlas = ExtResource("2_ncxvy")
+region = Rect2(1248, 319, 207, 318)
 
 [resource]
 script = ExtResource("1_76vpy")
+order_num = 7
 name = "Seven of Cups"
-texture = ExtResource("2_ncxvy")
+texture = SubResource("AtlasTexture_a6o55")
 card_suit = 2
 value = 7
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

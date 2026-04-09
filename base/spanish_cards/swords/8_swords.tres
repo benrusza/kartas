@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://bvrngd4wsdqy"]
+
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_u7xra"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_7i7dd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r54ix"]
+atlas = ExtResource("2_7i7dd")
+region = Rect2(1456, 638, 207, 318)
+
+[resource]
+script = ExtResource("1_u7xra")
+order_num = 8
+name = "Eight of Swords"
+texture = SubResource("AtlasTexture_r54ix")
+card_suit = 3
+value = 8
+metadata/_custom_type_script = "uid://dox8s17eu2u0u"

@@ -12,6 +12,8 @@
 
 extends CanvasLayer
 
+class_name Kartas 
+
 @export var deck: CardDeck
 @export var use_stagger_draw: bool = true
 # ----
@@ -19,11 +21,14 @@ extends CanvasLayer
 var current_points: int = 0
 
 @onready var card_deck_manager: CardDeckManager = $CardDeckManager
+@onready var joker_deck_manager: CardDeckManager = $JokerDeckManager
 @onready var played_hand: CardHand = %PlayedHand
 @onready var balatro_hand: BalatroHand = %BalatroHand
+@onready var jokers_hand: JokerHand = %JokersHand
 
 
 @onready var draw: CardPile = %Draw
+@onready var jokers: CardPile = %Jokers
 @onready var discard: CardPile = %Discard
 
 @onready var gold_button: Button = %GoldButton
@@ -57,6 +62,9 @@ var current_preview_pile: CardPile
 
 var sort_by_suit: bool = false
 
+func _process(delta):
+	if Input.is_key_pressed(KEY_P):
+		current_points += 1000
 
 func _ready() -> void:
 	gold_button.pressed.connect(_on_gold_pressed)
@@ -69,18 +77,39 @@ func _ready() -> void:
 	preview_draw.pressed.connect(_on_preview_draw_pressed)
 	preview_discard.pressed.connect(_on_preview_discard_pressed)
 	
-	# ----
+	CG.def_front_layout = LayoutID.SPANISH_LAYOUT
+	CG.def_back_layout = LayoutID.SPANISH_LAYOUT_BACK
+	
+	card_deck_manager.setup()
+	joker_deck_manager.setup()
+	set_jokers()
+	
+	deal()
+	
+	goal_points = Global.goal_points
 	label_goal_points.text = str(goal_points)
 	label_discards.text = str(discards)
 	label_plays.text = str(plays)
-	# ----
+	
+	
 
-	CG.def_front_layout = LayoutID.SPANISH_LAYOUT
-	CG.def_back_layout = LayoutID.SPANISH_LAYOUT_BACK
-
-	card_deck_manager.setup()
-	deal()
-
+func set_jokers():
+	if Global.joker_ids.size()==0:
+		return
+		
+	for joker in jokers._cards:
+		for id in Global.joker_ids:
+			if joker.card_data.value == id:
+				jokers_hand.add_card(joker.duplicate())
+	
+	for joker in jokers_hand.cards:
+		if joker.card_data.joker_mode == SpanishCardResource.JokerMode.STARTER:
+			joker.card_data.jokerScript.new()._activate(self)
+			
+			
+	
+	
+	
 
 #region Modifier Buttons
 
@@ -113,12 +142,10 @@ func _on_discard_pressed() -> void:
 	if discards<=0:
 		return
 		
-	discards-=1
-	label_discards.text=str(discards)
-	
 	if balatro_hand.selected.is_empty():
 		return
-	
+	discards-=1
+	label_discards.text=str(discards)
 	var cards_to_discard := balatro_hand.selected.duplicate()
 	balatro_hand.clear_selected()
 	for card in cards_to_discard:
@@ -126,6 +153,11 @@ func _on_discard_pressed() -> void:
 	
 	deal()
 
+
+var cards_by_suit = {}
+var cards_by_value = {}
+var cards_to_point = []
+var points = 0
 
 func _on_play_button() -> void:
 	if balatro_hand.selected.is_empty():
@@ -144,9 +176,12 @@ func _on_play_button() -> void:
 	staggered_draw(cards_to_play, played_hand)
 	
 	#await get_tree().create_timer(2).timeout ## Replace with VFX/Logic
-	var cards_by_suit = {}
-	var cards_by_value = {}
-	var points = 0
+	
+	cards_by_suit = {}
+	cards_by_value = {}
+	points = 0
+	cards_to_point = []
+	
 	for card in played_hand.cards.duplicate():
 		if cards_by_suit.has(card.card_data.card_suit):
 			cards_by_suit[card.card_data.card_suit].append(card)
@@ -158,6 +193,11 @@ func _on_play_button() -> void:
 		else:
 			cards_by_value[card.card_data.value] = [card]
 					
+
+	#comodin de juntar palos aqui
+	for joker in jokers_hand.cards:
+		if joker.card_data.joker_mode == SpanishCardResource.JokerMode.GROUP_SUIT:
+			joker.card_data.jokerScript.new()._activate(self)
 
 	var id_bigger_cards_by_suit = cards_by_suit.keys()[0]
 	for cards in cards_by_suit.duplicate():
@@ -180,13 +220,13 @@ func _on_play_button() -> void:
 			print("escalera de color*5")
 			label_multiplier_name.text = "Escalera de color"
 			for card in played_hand.cards:
-				points+= card.card_data.value
+				cards_to_point.append(card)
 			multiplier = 5
 		else:
 			print("5 cartas de color *3")
 			label_multiplier_name.text = "Color"
 			for card in played_hand.cards:
-				points+= card.card_data.value
+				cards_to_point.append(card)
 			multiplier = 3
 		pass
 	elif cards_by_value[id_bigger_cards_by_value].size()==4:
@@ -194,28 +234,36 @@ func _on_play_button() -> void:
 		label_multiplier_name.text = "Poker"
 		multiplier = 5
 		for card in played_hand.cards:
-			points+= card.card_data.value
+			cards_to_point.append(card)
 	elif straight:
 		for card in played_hand.cards:
-			points+= card.card_data.value
+			cards_to_point.append(card)
 		print("escalera* 3")
 		label_multiplier_name.text = "Escalera"
 		multiplier = 4
 	elif cards_by_value[id_bigger_cards_by_value].size()==3:
 		print("trio * 3")
 		label_multiplier_name.text = "Trio"
-		multiplier = 3
-		for card in cards_by_value[id_bigger_cards_by_value]:
-			points += card.card_data.value
-		# hay full?no
-	elif cards_by_value[id_bigger_cards_by_value].size()==2:
+		multiplier = 2
 			
+		for card in cards_by_value.values():
+			if card.size()>=2 :
+				multiplier+=1
+				for c in card:
+					cards_to_point.append(c)
+		# hay full?no
+		if multiplier == 4:
+			label_multiplier_name.text = "Trieja"
+		else:
+			label_multiplier_name.text = "Trio"
+	elif cards_by_value[id_bigger_cards_by_value].size()==2:
+
 		# hay doble pareja?
 		for card in cards_by_value.values():
 			if card.size()==2:
+				multiplier+=1
 				for c in card:
-					multiplier+=1
-					points+= c.card_data.value
+					cards_to_point.append(c)
 		if multiplier == 3:
 			label_multiplier_name.text = "Doble pareja"
 		else:
@@ -229,39 +277,72 @@ func _on_play_button() -> void:
 		for card in played_hand.cards.duplicate():
 			if card.card_data.value > bigger.card_data.value:
 				bigger = card
-		points = bigger.card_data.value
+		cards_to_point.append(bigger)
 		
 
+	await get_tree().create_timer(0.5).timeout
+	
+	for card in cards_to_point:
+		points+=card.card_data.value
+		played_hand.anim_point(card)
+		await get_tree().create_timer(0.3).timeout
+		
+	var to_point_by_joker = []
+	
+	#joker :cartas de x tipo puntuan el doble
+	for joker in jokers_hand.cards:
+		if joker.card_data.joker_mode == SpanishCardResource.JokerMode.DOUBLER:
+			to_point_by_joker = joker.card_data.jokerScript.new()._activate(self)
+	await get_tree().create_timer(0.5).timeout
+	
+	if to_point_by_joker.size()>0:
+		for card in to_point_by_joker:
+			points+=card.card_data.value
+			played_hand.anim_point(card)
+			await get_tree().create_timer(0.3).timeout
+	
+	#joker :cartas de x tipo puntuan el doble
+	for joker in jokers_hand.cards:
+		if joker.card_data.joker_mode == SpanishCardResource.JokerMode.PASIVE:
+			joker.card_data.jokerScript.new()._activate(self,joker)
+			await get_tree().create_timer(0.3).timeout
+	
+	
 	label_hand_points.text = str(points)
 	label_multiplier.text = "x"+str(multiplier)
+	
 	points*=multiplier
 	
+	await get_tree().create_timer(0.5).timeout
+	
 	current_points+=points
+	label_points.text = str(current_points)
 	Global.points = current_points
 	#points+=card.card_data.value
-	await get_tree().create_timer(2).timeout
+	
 	label_hand_points.text = ""
 	label_multiplier.text = ""
-	label_points.text = str(current_points)
+	
 	
 	for card in played_hand.cards.duplicate():
 		discard.add_card(card)
 	
 	played_hand.clear_hand()
 	
+	if goal_points <= current_points:
+		get_tree().change_scene_to_file("res://selectjoker.tscn")
+		return
+	
 	if plays==0:
-		if goal_points <= points:
-			#next
-			pass
-		else:
-			#gameover
-			get_tree().change_scene_to_file("res://base/gameover.tscn")
-			pass
+		get_tree().change_scene_to_file("res://base/gameover.tscn")
+		return
 	
 	deal()
 	_set_interaction_enabled(true)
 	
 func has_straight(cards):
+	if cards.size()<5:
+		return false
 	# Sort the cards by value
 	cards.sort_custom(Callable(self, "_sort_cards_by_value"))
 
@@ -275,7 +356,7 @@ func has_straight(cards):
 	return true
 
 func _sort_cards_by_value(a, b):
-	return a.card_data.value < b.card_data.value
+	return a.card_data.order_num < b.card_data.order_num
 
 
 #endregion
@@ -326,14 +407,14 @@ func _on_sort_suit_pressed() -> void:
 	
 func _on_sort_value_pressed() -> void:
 	sort_by_suit = false
-	balatro_hand.sort_by_value()
+	balatro_hand.sort_by_order()
 
 
 func _apply_sort() -> void:
 	if sort_by_suit:
 		balatro_hand.sort_by_suit()
 	else:
-		balatro_hand.sort_by_value()
+		balatro_hand.sort_by_order()
 
 
 #endregion

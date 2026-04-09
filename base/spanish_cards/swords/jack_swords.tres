@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://3cwtqqwc5shc"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_pnaae"]
-[ext_resource type="Texture2D" uid="uid://cwtgsdw2htjj3" path="res://spanish_deck/28.PNG" id="2_foxo8"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_foxo8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fglb3"]
+atlas = ExtResource("2_foxo8")
+region = Rect2(1872, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_pnaae")
+order_num = 10
 name = "Jack of Swords"
-texture = ExtResource("2_foxo8")
+texture = SubResource("AtlasTexture_fglb3")
 card_suit = 3
 value = 10
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

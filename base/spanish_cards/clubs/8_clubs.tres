@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://cmc4nigepvgni"]
+
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_gq625"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_pd47h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r54ix"]
+atlas = ExtResource("2_pd47h")
+region = Rect2(1456, 957, 207, 318)
+
+[resource]
+script = ExtResource("1_gq625")
+order_num = 8
+name = "Eight of Clubs"
+texture = SubResource("AtlasTexture_r54ix")
+card_suit = 0
+value = 8
+metadata/_custom_type_script = "uid://dox8s17eu2u0u"

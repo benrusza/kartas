@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b0nstautbg1by"]
+
+[ext_resource type="AudioStream" uid="uid://dmywge12xacld" path="res://Audio/kartas_drums_bass_reed_55bpm_beta.ogg" id="1_452hj"]
+
+[node name="Music" type="Node" unique_id=616324647]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=454716339]
+stream = ExtResource("1_452hj")
+autoplay = true

@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://ck7jyrnpjmspn"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_n4oa4"]
-[ext_resource type="Texture2D" uid="uid://bwpv2my7bed4g" path="res://spanish_deck/29.PNG" id="2_v14rk"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_v14rk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1c17"]
+atlas = ExtResource("2_v14rk")
+region = Rect2(2080, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_n4oa4")
+order_num = 11
 name = "Horse of Swords"
-texture = ExtResource("2_v14rk")
+texture = SubResource("AtlasTexture_b1c17")
 card_suit = 3
 value = 11
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

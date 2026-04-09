@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://dsnlvkslkr5h5"]
+
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_48yig"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_kfkr5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r54ix"]
+atlas = ExtResource("2_kfkr5")
+region = Rect2(1456, 319, 207, 318)
+
+[resource]
+script = ExtResource("1_48yig")
+order_num = 8
+name = "Eight of Cups"
+texture = SubResource("AtlasTexture_r54ix")
+card_suit = 2
+value = 8
+metadata/_custom_type_script = "uid://dox8s17eu2u0u"

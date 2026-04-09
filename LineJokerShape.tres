@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LineHandShape" format=3 uid="uid://j6o1k24stkxd"]
+
+[ext_resource type="Script" uid="uid://b1s6x4iyt2pps" path="res://addons/simple_cards/hand/shape/premade_shapes/line_shape.gd" id="1_46le6"]
+
+[resource]
+script = ExtResource("1_46le6")
+max_width = 1200.0
+card_spacing = 120.0
+metadata/_custom_type_script = "uid://b1s6x4iyt2pps"

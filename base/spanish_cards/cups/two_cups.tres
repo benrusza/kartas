@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://cpsta1pts5q3s"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_bq1co"]
-[ext_resource type="Texture2D" uid="uid://brt2ionl05ohl" path="res://spanish_deck/12.PNG" id="2_bqvi2"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_bqvi2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoolt"]
+atlas = ExtResource("2_bqvi2")
+region = Rect2(208, 319, 207, 318)
 
 [resource]
 script = ExtResource("1_bq1co")
+order_num = 2
 name = "Two of Cups"
-texture = ExtResource("2_bqvi2")
+texture = SubResource("AtlasTexture_hoolt")
 card_suit = 2
 value = 2
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

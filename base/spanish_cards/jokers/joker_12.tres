@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://byr5khhyv2mw7"]
+
+[ext_resource type="Script" uid="uid://co5bci51td1p3" path="res://base/spanish_cards/jokers/scripts/add_play_discard_hand.gd" id="1_jg20x"]
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="2_8t7bo"]
+[ext_resource type="Texture2D" uid="uid://c41exrdy5fb2q" path="res://joker_deck/fraterossmortem_by_technojunk.png" id="3_f7kfi"]
+
+[resource]
+script = ExtResource("2_8t7bo")
+name = "0"
+texture = ExtResource("3_f7kfi")
+joker_mode = 1
+value = 10
+description = "cambia una carta al arrastrarla al comodin por otra"
+jokerScript = ExtResource("1_jg20x")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

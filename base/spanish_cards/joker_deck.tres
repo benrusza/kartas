@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardDeck" format=3 uid="uid://bf07swwidvp6h"]
+
+[ext_resource type="Script" uid="uid://c8315v58tr66b" path="res://addons/simple_cards/card/card_resource/card_resource.gd" id="1_sawa2"]
+[ext_resource type="Resource" uid="uid://dvol1g25g77ri" path="res://base/spanish_cards/jokers/joker_1.tres" id="2_r6cer"]
+[ext_resource type="Resource" uid="uid://dbwmone1soj2r" path="res://base/spanish_cards/jokers/joker_2.tres" id="3_wosij"]
+[ext_resource type="Resource" uid="uid://kmffq46pgxuc" path="res://base/spanish_cards/jokers/joker_3.tres" id="4_isl42"]
+[ext_resource type="Resource" uid="uid://btrq8c6mv6sdi" path="res://base/spanish_cards/jokers/joker_4.tres" id="5_lkvmr"]
+[ext_resource type="Resource" uid="uid://veploqmuvkt8" path="res://base/spanish_cards/jokers/joker_5.tres" id="6_ewfrb"]
+[ext_resource type="Resource" uid="uid://bporwm8jh2yp6" path="res://base/spanish_cards/jokers/joker_6.tres" id="7_wosij"]
+[ext_resource type="Resource" uid="uid://cdkb2s548s06k" path="res://base/spanish_cards/jokers/joker_7.tres" id="8_isl42"]
+[ext_resource type="Resource" uid="uid://utwqmlk03bs6" path="res://base/spanish_cards/jokers/joker_8.tres" id="9_lkvmr"]
+[ext_resource type="Resource" uid="uid://ygmo2idae6l5" path="res://base/spanish_cards/jokers/joker_9.tres" id="10_2evst"]
+[ext_resource type="Resource" uid="uid://pejiolt4br3" path="res://base/spanish_cards/jokers/joker_10.tres" id="11_ocu8d"]
+[ext_resource type="Script" uid="uid://lhb5ry3o8icy" path="res://addons/simple_cards/deck/card_deck.gd" id="42_wwkw3"]
+
+[resource]
+script = ExtResource("42_wwkw3")
+deck_name = &"Joker"
+cards = Array[ExtResource("1_sawa2")]([ExtResource("2_r6cer"), ExtResource("3_wosij"), ExtResource("4_isl42"), ExtResource("5_lkvmr"), ExtResource("6_ewfrb"), ExtResource("7_wosij"), ExtResource("8_isl42"), ExtResource("9_lkvmr"), ExtResource("10_2evst"), ExtResource("11_ocu8d")])
+metadata/_custom_type_script = "uid://lhb5ry3o8icy"

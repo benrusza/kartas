@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://cdkb2s548s06k"]
+
+[ext_resource type="Script" uid="uid://bq4e2wmbr8gsa" path="res://base/spanish_cards/jokers/scripts/add_card_hand.gd" id="1_nhpo1"]
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="2_kw5no"]
+[ext_resource type="Texture2D" uid="uid://btin6mohdd3p8" path="res://joker_deck/monocartas.webp" id="3_nhpo1"]
+
+[resource]
+script = ExtResource("2_kw5no")
+name = "x 4"
+texture = ExtResource("3_nhpo1")
+joker_mode = 1
+value = 7
+description = "+1 a tu mano"
+jokerScript = ExtResource("1_nhpo1")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

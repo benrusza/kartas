@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://kmffq46pgxuc"]
+
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_8u453"]
+[ext_resource type="Script" uid="uid://cgcbkpcbfwoi1" path="res://base/spanish_cards/jokers/scripts/group_clubs_swords.gd" id="1_aabwf"]
+[ext_resource type="Texture2D" uid="uid://bfbs1ijfwany8" path="res://joker_deck/sword_club.png" id="3_aabwf"]
+
+[resource]
+script = ExtResource("1_8u453")
+name = "3"
+texture = ExtResource("3_aabwf")
+joker_mode = 4
+value = 3
+description = "Bastos y Espadas como mismo palo"
+jokerScript = ExtResource("1_aabwf")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

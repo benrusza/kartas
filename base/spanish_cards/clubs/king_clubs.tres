@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://6wc0sp8edge1"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_bpdjs"]
-[ext_resource type="Texture2D" uid="uid://djuy1qawel2n" path="res://spanish_deck/40.PNG" id="2_nieh7"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_bpdjs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nieh7"]
+atlas = ExtResource("2_bpdjs")
+region = Rect2(2288, 957, 207, 318)
 
 [resource]
 script = ExtResource("1_bpdjs")
+order_num = 12
 name = "King of Clubs"
-texture = ExtResource("2_nieh7")
+texture = SubResource("AtlasTexture_nieh7")
 card_suit = 0
 value = 12
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

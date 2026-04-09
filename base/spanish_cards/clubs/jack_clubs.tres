@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://bd3h63cigogt1"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_x73qy"]
-[ext_resource type="Texture2D" uid="uid://cotmpnl1ordx0" path="res://spanish_deck/38.PNG" id="2_odab4"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_x73qy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odab4"]
+atlas = ExtResource("2_x73qy")
+region = Rect2(1872, 957, 207, 318)
 
 [resource]
 script = ExtResource("1_x73qy")
+order_num = 10
 name = "Jack of Clubs"
-texture = ExtResource("2_odab4")
+texture = SubResource("AtlasTexture_odab4")
 card_suit = 0
 value = 10
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

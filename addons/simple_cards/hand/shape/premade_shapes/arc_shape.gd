@@ -24,9 +24,8 @@ func _compute_raw_cards(cards: Array[Card]) -> Dictionary:
 	
 	var angle_between = 0.0
 	if card_count > 1:
-		var arc_length = (card_count - 1) * card_spacing
-		var max_angle = min(arc_angle, rad_to_deg(arc_length / arc_radius))
-		angle_between = max_angle / max(1, card_count - 1)
+		# Calculate angle between cards based on spacing
+		angle_between = rad_to_deg(card_spacing / arc_radius)
 	
 	var start_angle = arc_orientation - (angle_between * (card_count - 1)) / 2.0
 	var orientation_rad = deg_to_rad(arc_orientation)

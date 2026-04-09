@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://utwqmlk03bs6"]
+
+[ext_resource type="Script" uid="uid://ba51fsjlivr8u" path="res://base/spanish_cards/jokers/scripts/sumplus.gd" id="1_h1lay"]
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="2_01ff1"]
+[ext_resource type="Texture2D" uid="uid://dxs44tu4pvvc7" path="res://joker_deck/lenux.webp" id="3_h1lay"]
+
+[resource]
+script = ExtResource("2_01ff1")
+name = "+25"
+texture = ExtResource("3_h1lay")
+joker_mode = 3
+value = 25
+description = "+25 puntos al anotar"
+jokerScript = ExtResource("1_h1lay")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

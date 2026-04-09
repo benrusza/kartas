@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c8315v58tr66b" path="res://addons/simple_cards/card/card_resource/card_resource.gd" id="1_ivrkw"]
 [ext_resource type="Resource" uid="uid://cwfthsb7w3fb6" path="res://base/spanish_cards/golds/ace_golds.tres" id="2_0pmd2"]
+[ext_resource type="Resource" uid="uid://bvrngd4wsdqy" path="res://base/spanish_cards/swords/8_swords.tres" id="2_716as"]
+[ext_resource type="Resource" uid="uid://dbf7x3sls067o" path="res://base/spanish_cards/swords/9_swords.tres" id="3_0pobf"]
 [ext_resource type="Resource" uid="uid://doaeluiralu3t" path="res://base/spanish_cards/golds/two_golds.tres" id="3_dplyp"]
 [ext_resource type="Resource" uid="uid://dibknm2aw8sn7" path="res://base/spanish_cards/golds/three_golds.tres" id="4_jcdau"]
 [ext_resource type="Resource" uid="uid://d3x1byauq6k03" path="res://base/spanish_cards/golds/four_golds.tres" id="5_ctsm8"]
@@ -13,8 +15,10 @@
 [ext_resource type="Resource" uid="uid://b8c0npe8gwvjl" path="res://base/spanish_cards/golds/king_golds.tres" id="11_716as"]
 [ext_resource type="Resource" uid="uid://deo2b80cmugrj" path="res://base/spanish_cards/cups/ace_cups.tres" id="12_0pobf"]
 [ext_resource type="Resource" uid="uid://c78ll5hqnqpxh" path="res://base/spanish_cards/cups/five_cups.tres" id="13_nopm6"]
+[ext_resource type="Resource" uid="uid://d2rggti0ucjmt" path="res://base/spanish_cards/golds/8_golds.tres" id="14_nopm6"]
 [ext_resource type="Resource" uid="uid://e2bkyl3fuw5" path="res://base/spanish_cards/cups/four_cups.tres" id="14_xnlsb"]
 [ext_resource type="Resource" uid="uid://casoucnop3p65" path="res://base/spanish_cards/cups/horse_cups.tres" id="15_i2yky"]
+[ext_resource type="Resource" uid="uid://dl0py65ulvtx2" path="res://base/spanish_cards/golds/9_golds.tres" id="15_xnlsb"]
 [ext_resource type="Resource" uid="uid://b131654cr7875" path="res://base/spanish_cards/cups/jack_cups.tres" id="16_444bq"]
 [ext_resource type="Resource" uid="uid://cc2vxa8l6p7r5" path="res://base/spanish_cards/cups/king_cups.tres" id="17_r4yhc"]
 [ext_resource type="Resource" uid="uid://cikmctuf5lbo7" path="res://base/spanish_cards/cups/seven_cups.tres" id="18_oqvpw"]
@@ -25,8 +29,10 @@
 [ext_resource type="Resource" uid="uid://crmitiphujwgn" path="res://base/spanish_cards/clubs/five_clubs.tres" id="23_km1f3"]
 [ext_resource type="Resource" uid="uid://ctkuc1u24c27s" path="res://base/spanish_cards/clubs/four_clubs.tres" id="24_7kyck"]
 [ext_resource type="Resource" uid="uid://daad405k87fu" path="res://base/spanish_cards/clubs/horse_clubs.tres" id="25_8ku1b"]
+[ext_resource type="Resource" uid="uid://dsnlvkslkr5h5" path="res://base/spanish_cards/cups/8_cups.tres" id="26_i2yky"]
 [ext_resource type="Resource" uid="uid://bd3h63cigogt1" path="res://base/spanish_cards/clubs/jack_clubs.tres" id="26_uw230"]
 [ext_resource type="Resource" uid="uid://6wc0sp8edge1" path="res://base/spanish_cards/clubs/king_clubs.tres" id="27_8rgbg"]
+[ext_resource type="Resource" uid="uid://5rlnyt0y1q4n" path="res://base/spanish_cards/cups/9_cups.tres" id="27_444bq"]
 [ext_resource type="Resource" uid="uid://c4jkxjtkkv5wq" path="res://base/spanish_cards/clubs/seven_clubs.tres" id="28_eba23"]
 [ext_resource type="Resource" uid="uid://biabhwiqx7v2x" path="res://base/spanish_cards/clubs/six_clubs.tres" id="29_d4m83"]
 [ext_resource type="Resource" uid="uid://bu868c404ekgi" path="res://base/spanish_cards/clubs/three_clubs.tres" id="30_eunrr"]
@@ -38,7 +44,9 @@
 [ext_resource type="Resource" uid="uid://3cwtqqwc5shc" path="res://base/spanish_cards/swords/jack_swords.tres" id="36_6ccq1"]
 [ext_resource type="Resource" uid="uid://b28isdnesylah" path="res://base/spanish_cards/swords/king_swords.tres" id="37_dwly5"]
 [ext_resource type="Resource" uid="uid://dsvmgrqxpkt8" path="res://base/spanish_cards/swords/seven_swords.tres" id="38_mtjeg"]
+[ext_resource type="Resource" uid="uid://cmc4nigepvgni" path="res://base/spanish_cards/clubs/8_clubs.tres" id="38_r4yhc"]
 [ext_resource type="Resource" uid="uid://dbg65bar6neha" path="res://base/spanish_cards/swords/six_swords.tres" id="39_8v5qb"]
+[ext_resource type="Resource" uid="uid://ctkqlm4kptacl" path="res://base/spanish_cards/clubs/9_clubs.tres" id="39_oqvpw"]
 [ext_resource type="Resource" uid="uid://c6obfd1rp6yr0" path="res://base/spanish_cards/swords/three_swords.tres" id="40_fi6rd"]
 [ext_resource type="Resource" uid="uid://d2tnw677rreo8" path="res://base/spanish_cards/swords/two_swords.tres" id="41_dj0un"]
 [ext_resource type="Script" uid="uid://lhb5ry3o8icy" path="res://addons/simple_cards/deck/card_deck.gd" id="54_afdnt"]
@@ -46,5 +54,5 @@
 [resource]
 script = ExtResource("54_afdnt")
 deck_name = &"Spanish"
-cards = Array[ExtResource("1_ivrkw")]([ExtResource("2_0pmd2"), ExtResource("3_dplyp"), ExtResource("4_jcdau"), ExtResource("5_ctsm8"), ExtResource("6_3a02h"), ExtResource("7_s2v2e"), ExtResource("8_2kcrq"), ExtResource("9_8prna"), ExtResource("10_52duo"), ExtResource("11_716as"), ExtResource("12_0pobf"), ExtResource("13_nopm6"), ExtResource("14_xnlsb"), ExtResource("15_i2yky"), ExtResource("16_444bq"), ExtResource("17_r4yhc"), ExtResource("18_oqvpw"), ExtResource("19_doxh0"), ExtResource("20_ma76h"), ExtResource("21_beo2r"), ExtResource("22_c6i48"), ExtResource("23_km1f3"), ExtResource("24_7kyck"), ExtResource("25_8ku1b"), ExtResource("26_uw230"), ExtResource("27_8rgbg"), ExtResource("28_eba23"), ExtResource("29_d4m83"), ExtResource("30_eunrr"), ExtResource("31_pi6nh"), ExtResource("32_dsbc0"), ExtResource("33_eeo4l"), ExtResource("34_cit4o"), ExtResource("35_q7rxh"), ExtResource("36_6ccq1"), ExtResource("37_dwly5"), ExtResource("38_mtjeg"), ExtResource("39_8v5qb"), ExtResource("40_fi6rd"), ExtResource("41_dj0un")])
+cards = Array[ExtResource("1_ivrkw")]([ExtResource("2_716as"), ExtResource("3_0pobf"), ExtResource("32_dsbc0"), ExtResource("33_eeo4l"), ExtResource("34_cit4o"), ExtResource("35_q7rxh"), ExtResource("36_6ccq1"), ExtResource("37_dwly5"), ExtResource("38_mtjeg"), ExtResource("39_8v5qb"), ExtResource("40_fi6rd"), ExtResource("41_dj0un"), ExtResource("14_nopm6"), ExtResource("15_xnlsb"), ExtResource("2_0pmd2"), ExtResource("6_3a02h"), ExtResource("5_ctsm8"), ExtResource("10_52duo"), ExtResource("9_8prna"), ExtResource("11_716as"), ExtResource("8_2kcrq"), ExtResource("7_s2v2e"), ExtResource("4_jcdau"), ExtResource("3_dplyp"), ExtResource("26_i2yky"), ExtResource("27_444bq"), ExtResource("12_0pobf"), ExtResource("13_nopm6"), ExtResource("14_xnlsb"), ExtResource("15_i2yky"), ExtResource("16_444bq"), ExtResource("17_r4yhc"), ExtResource("18_oqvpw"), ExtResource("19_doxh0"), ExtResource("20_ma76h"), ExtResource("21_beo2r"), ExtResource("38_r4yhc"), ExtResource("39_oqvpw"), ExtResource("22_c6i48"), ExtResource("23_km1f3"), ExtResource("24_7kyck"), ExtResource("25_8ku1b"), ExtResource("26_uw230"), ExtResource("27_8rgbg"), ExtResource("28_eba23"), ExtResource("29_d4m83"), ExtResource("30_eunrr"), ExtResource("31_pi6nh")])
 metadata/_custom_type_script = "uid://lhb5ry3o8icy"

@@ -39,6 +39,12 @@ func sort_by_suit() -> void:
 		return a.card_data.value > b.card_data.value)
 
 
+func sort_by_order() -> void:
+	sort_cards(func(a: Card, b: Card) -> bool:
+		if a.card_data.order_num != b.card_data.order_num:
+			return a.card_data.order_num > b.card_data.order_num
+		return a.card_data.card_suit < b.card_data.card_suit)
+
 ## Sort by value, then by suit as tiebreaker.
 func sort_by_value() -> void:
 	sort_cards(func(a: Card, b: Card) -> bool:

@@ -369,6 +369,12 @@ func _on_card_removed(card: Card, index: int) -> void:
 ## Called when a card in the hand is clicked. Override to implement custom behavior.
 func _handle_clicked_card(card: Card) -> void:
 	pass
+	
+func _handle_mouse_entered(card: Card)-> void:
+	pass
+	
+func _handle_mouse_exited(card: Card)-> void:
+	pass
 
 #endregion
 
@@ -382,7 +388,10 @@ func _connect_card_signals(card: Card) -> void:
 		card.focus_exited.connect(_on_card_unfocused.bind(card))
 	if not card.card_clicked.is_connected(_handle_clicked_card):
 		card.card_clicked.connect(_handle_clicked_card)
-
+	if not card.mouse_entered.is_connected(_handle_mouse_entered.bind(card)):
+		card.mouse_entered.connect(_handle_mouse_entered.bind(card))
+	if not card.mouse_exited.is_connected(_handle_mouse_exited.bind(card)):
+		card.mouse_exited.connect(_handle_mouse_exited.bind(card))
 
 func _disconnect_card_signals(card: Card) -> void:
 	if card.focus_entered.is_connected(_on_card_focused):
@@ -391,6 +400,10 @@ func _disconnect_card_signals(card: Card) -> void:
 		card.focus_exited.disconnect(_on_card_unfocused)
 	if card.card_clicked.is_connected(_handle_clicked_card):
 		card.card_clicked.disconnect(_handle_clicked_card)
+	if card.mouse_entered.is_connected(_handle_mouse_entered):
+		card.mouse_entered.disconnect(_handle_mouse_entered)
+	if card.mouse_exited.is_connected(_handle_mouse_exited):
+		card.mouse_exited.disconnect(_handle_mouse_exited)
 
 
 func _on_card_focused(card: Card) -> void:

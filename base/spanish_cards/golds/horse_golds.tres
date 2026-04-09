@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://b044df0lsyplm"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_ehtv3"]
-[ext_resource type="Texture2D" uid="uid://jdlxewgykcg2" path="res://spanish_deck/9.PNG" id="2_ehtv3"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_ehtv3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vutqs"]
+atlas = ExtResource("2_ehtv3")
+region = Rect2(2080, 0, 207, 318)
 
 [resource]
 script = ExtResource("1_ehtv3")
+order_num = 11
 name = "Horse of Golds"
-texture = ExtResource("2_ehtv3")
+texture = SubResource("AtlasTexture_vutqs")
 card_suit = 1
 value = 11
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

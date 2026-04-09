@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://dibknm2aw8sn7"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_vghki"]
-[ext_resource type="Texture2D" uid="uid://c6kfnljet3kk3" path="res://spanish_deck/3.PNG" id="2_vghki"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_vghki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q80os"]
+atlas = ExtResource("2_vghki")
+region = Rect2(416, 0, 207, 318)
 
 [resource]
 script = ExtResource("1_vghki")
+order_num = 3
 name = "Three of Golds"
-texture = ExtResource("2_vghki")
+texture = SubResource("AtlasTexture_q80os")
 card_suit = 1
 value = 3
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

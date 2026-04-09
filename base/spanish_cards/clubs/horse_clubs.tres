@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://daad405k87fu"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_sw55p"]
-[ext_resource type="Texture2D" uid="uid://c0w1e5uhbvnta" path="res://spanish_deck/39.PNG" id="2_rtqdh"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_sw55p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtqdh"]
+atlas = ExtResource("2_sw55p")
+region = Rect2(2080, 957, 207, 318)
 
 [resource]
 script = ExtResource("1_sw55p")
+order_num = 11
 name = "Horse of Clubs"
-texture = ExtResource("2_rtqdh")
+texture = SubResource("AtlasTexture_rtqdh")
 card_suit = 0
 value = 11
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

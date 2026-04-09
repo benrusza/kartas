@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://ctuhhpd34u6oh"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_tvqo5"]
-[ext_resource type="Texture2D" uid="uid://cerlcwxcgvypj" path="res://spanish_deck/5.PNG" id="2_tvqo5"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_tvqo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp4o5"]
+atlas = ExtResource("2_tvqo5")
+region = Rect2(832, 0, 207, 318)
 
 [resource]
 script = ExtResource("1_tvqo5")
+order_num = 5
 name = "Five of Golds"
-texture = ExtResource("2_tvqo5")
+texture = SubResource("AtlasTexture_pp4o5")
 card_suit = 1
 value = 5
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

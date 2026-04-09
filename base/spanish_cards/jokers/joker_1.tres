@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://dvol1g25g77ri"]
+
+[ext_resource type="Script" uid="uid://o7qrluv7h5fg" path="res://base/spanish_cards/jokers/scripts/kings_double.gd" id="1_7guit"]
+[ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_mvm4p"]
+[ext_resource type="Texture2D" uid="uid://4tq8pmivsk2h" path="res://joker_deck/mouse.webp" id="3_7guit"]
+
+[resource]
+script = ExtResource("1_mvm4p")
+name = "1"
+texture = ExtResource("3_7guit")
+joker_mode = 2
+description = "Los reyes puntuan el doble"
+jokerScript = ExtResource("1_7guit")
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"

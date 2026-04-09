@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://dlkfclljkrryk"]
+
+[ext_resource type="Script" uid="uid://b25b6us2m66ly" path="res://selectjoker.gd" id="1_l1itq"]
+[ext_resource type="Texture2D" uid="uid://b4inq0h3j7lwo" path="res://spanish_deck/jokerc1.png" id="2_4qvkt"]
+[ext_resource type="Script" path="res://base/background.gd" id="3_111sn"]
+[ext_resource type="Script" uid="uid://bisyk4bowdvsf" path="res://addons/simple_cards/deck/manager/card_deck_manager.gd" id="4_jk1ji"]
+[ext_resource type="Resource" uid="uid://bf07swwidvp6h" path="res://base/spanish_cards/joker_deck.tres" id="5_rq0vc"]
+[ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/pile/card_pile.gd" id="6_v8f44"]
+[ext_resource type="Script" uid="uid://cle02hultetj5" path="res://addons/simple_cards/hand/shape/premade_shapes/stack_shape.gd" id="7_570na"]
+[ext_resource type="Script" path="res://JokerHand.gd" id="8_xm13c"]
+[ext_resource type="Resource" uid="uid://j6o1k24stkxd" path="res://LineJokerShape.tres" id="9_oeyby"]
+
+[sub_resource type="GDScript" id="GDScript_7uhre"]
+script/source = "## A standard playing card resource. Stores suit, value (1-13), a display texture,
+## and an optional visual modifier. Used by both the Balatro and Solitaire examples.
+class_name JokerCardResource extends CardResource
+
+@export var name: String
+@export var texture: Texture2D
+@export var current_modifier: Modifier = Modifier.NONE
+@export var card_suit: Suit = Suit.OTHER
+@export var value: int = 1
+@export var description: String # should permit multilang but how?
+
+## Changes the card's background color in the layout.
+enum Modifier {
+	NONE,
+	GOLD,
+	STEEL,
+}
+
+enum Suit {
+	MULTI,
+	SUM,
+	OTHER,
+}
+"
+
+[sub_resource type="Resource" id="Resource_w6kf8"]
+script = SubResource("GDScript_7uhre")
+name = "joker1"
+texture = ExtResource("2_4qvkt")
+description = "Los reyes puntuan el doble"
+metadata/_custom_type_script = "uid://cfi1jv4shgftg"
+
+[sub_resource type="Gradient" id="Gradient_7uhre"]
+offsets = PackedFloat32Array(0, 0.5, 0.99657536, 1)
+colors = PackedColorArray(0.87119293, 0.44868654, 0.95350534, 1, 0.84436935, 0.77154946, 0.64891756, 1, 2.7434528e-06, 0.5387909, 0.46869618, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fbjbr"]
+gradient = SubResource("Gradient_7uhre")
+
+[sub_resource type="Resource" id="Resource_fbjbr"]
+script = ExtResource("7_570na")
+metadata/_custom_type_script = "uid://cle02hultetj5"
+
+[node name="Control" type="Control" unique_id=1242385263]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l1itq")
+cardres = SubResource("Resource_w6kf8")
+
+[node name="Background" type="TextureRect" parent="." unique_id=179918983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_111sn")
+gradient_path = "res://gradient_bk.tres"
+speed = 0.32
+
+[node name="BoxDescription" type="TextureRect" parent="." unique_id=1907517272]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 64)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 560.0
+offset_right = 336.0
+offset_bottom = 624.0
+texture = SubResource("GradientTexture1D_fbjbr")
+
+[node name="LabelDescription" type="Label" parent="BoxDescription" unique_id=802338698]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 107.0
+offset_bottom = 39.0
+text = "Description"
+
+[node name="CardDeckManager" type="Node" parent="." unique_id=362877606 node_paths=PackedStringArray("starting_pile")]
+unique_name_in_owner = true
+script = ExtResource("4_jk1ji")
+deck = ExtResource("5_rq0vc")
+starting_pile = NodePath("Draw")
+metadata/_custom_type_script = "uid://bisyk4bowdvsf"
+
+[node name="Draw" type="Control" parent="CardDeckManager" unique_id=988123271]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("6_v8f44")
+shape = SubResource("Resource_fbjbr")
+show_cards = true
+metadata/_custom_type_script = "uid://d2l8uaoel5whd"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=950988315]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JokersHand" type="Control" parent="VBoxContainer" unique_id=194346596]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("8_xm13c")
+shape = ExtResource("9_oeyby")
+max_hand_size = 7
+metadata/_custom_type_script = "uid://bbi8i6vef3f6y"
+
+[node name="Space" type="Control" parent="VBoxContainer" unique_id=1048918059]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ButtonSelectJoker" type="Button" parent="VBoxContainer" unique_id=414347799]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select Joker"

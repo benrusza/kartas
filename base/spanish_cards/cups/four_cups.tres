@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://e2bkyl3fuw5"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_rro5e"]
-[ext_resource type="Texture2D" uid="uid://bt6la05oiukjs" path="res://spanish_deck/14.PNG" id="2_pyskj"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_pyskj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hesae"]
+atlas = ExtResource("2_pyskj")
+region = Rect2(624, 319, 207, 318)
 
 [resource]
 script = ExtResource("1_rro5e")
+order_num = 4
 name = "Four of Cups"
-texture = ExtResource("2_pyskj")
+texture = SubResource("AtlasTexture_hesae")
 card_suit = 2
 value = 4
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

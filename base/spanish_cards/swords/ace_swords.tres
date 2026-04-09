@@ -1,11 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://dvec05c3pqm3g"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_jeht3"]
-[ext_resource type="Texture2D" uid="uid://dxo7rir20jaq" path="res://spanish_deck/21.PNG" id="2_3nki5"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_3nki5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqeyg"]
+atlas = ExtResource("2_3nki5")
+region = Rect2(0, 638, 207, 318)
 
 [resource]
 script = ExtResource("1_jeht3")
+order_num = 1
 name = "Ace of Swords"
-texture = ExtResource("2_3nki5")
+texture = SubResource("AtlasTexture_aqeyg")
 card_suit = 3
+value = 20
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"

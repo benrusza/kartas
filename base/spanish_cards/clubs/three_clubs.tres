@@ -1,12 +1,17 @@
 [gd_resource type="Resource" script_class="SpanishCardResource" format=3 uid="uid://bu868c404ekgi"]
 
 [ext_resource type="Script" uid="uid://cfi1jv4shgftg" path="res://base/spanish_cards/spanish_card_resource.gd" id="1_s7ulf"]
-[ext_resource type="Texture2D" uid="uid://cupxvkfjs7ruo" path="res://spanish_deck/33.PNG" id="2_wah5t"]
+[ext_resource type="Texture2D" uid="uid://b33ijrcvh7g20" path="res://Assets/Baraja_española_completa.png" id="2_wah5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txmfj"]
+atlas = ExtResource("2_wah5t")
+region = Rect2(416, 957, 207, 318)
 
 [resource]
 script = ExtResource("1_s7ulf")
+order_num = 3
 name = "Three of Clubs"
-texture = ExtResource("2_wah5t")
+texture = SubResource("AtlasTexture_txmfj")
 card_suit = 0
 value = 3
 metadata/_custom_type_script = "uid://dox8s17eu2u0u"
