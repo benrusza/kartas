@@ -7,14 +7,14 @@
 [ext_resource type="Script" uid="uid://f3ybsxom5cmo" path="res://base/balatro/balatro_card_hand.gd" id="4_nx5jh"]
 [ext_resource type="Script" uid="uid://cgtxv1fnflwfu" path="res://addons/simple_cards/hand/shape/premade_shapes/arc_shape.gd" id="5_5jk62"]
 [ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/pile/card_pile.gd" id="6_m7y0m"]
-[ext_resource type="Script" path="res://JokerHand.gd" id="6_rdupq"]
+[ext_resource type="Script" uid="uid://dwvofbgs8udet" path="res://JokerHand.gd" id="6_rdupq"]
 [ext_resource type="Resource" uid="uid://j6o1k24stkxd" path="res://LineJokerShape.tres" id="7_05s0h"]
 [ext_resource type="Script" uid="uid://cle02hultetj5" path="res://addons/simple_cards/hand/shape/premade_shapes/stack_shape.gd" id="7_17jkb"]
 [ext_resource type="Script" uid="uid://bbi8i6vef3f6y" path="res://addons/simple_cards/hand/card_hand.gd" id="8_w1hpb"]
 [ext_resource type="Script" uid="uid://b1s6x4iyt2pps" path="res://addons/simple_cards/hand/shape/premade_shapes/line_shape.gd" id="9_pr677"]
 [ext_resource type="Script" uid="uid://qd3kangeiqg" path="res://addons/simple_cards/hand/shape/premade_shapes/grid_shape.gd" id="10_dbel8"]
-[ext_resource type="Script" path="res://base/balatro/played_hand.gd" id="13_5jk62"]
-[ext_resource type="Script" path="res://base/background.gd" id="15_m7y0m"]
+[ext_resource type="Script" uid="uid://cgx7qymu0aft0" path="res://base/balatro/played_hand.gd" id="13_5jk62"]
+[ext_resource type="Script" uid="uid://cinocgvivgj2b" path="res://base/background.gd" id="15_m7y0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6hid"]
 bg_color = Color(0.16078432, 0.2784314, 0.20784314, 1)
@@ -90,7 +90,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m6hid")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1401323095]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -346,6 +345,7 @@ custom_minimum_size = Vector2(1, 20)
 layout_mode = 2
 
 [node name="Wingame" type="MarginContainer" parent="." unique_id=1678473108]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

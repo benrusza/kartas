@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b25b6us2m66ly" path="res://selectjoker.gd" id="1_cn2ym"]
 [ext_resource type="Texture2D" uid="uid://b4inq0h3j7lwo" path="res://spanish_deck/jokerc1.png" id="2_fj3y4"]
-[ext_resource type="Script" path="res://base/background.gd" id="3_7uhre"]
+[ext_resource type="Script" uid="uid://cinocgvivgj2b" path="res://base/background.gd" id="3_7uhre"]
 [ext_resource type="Script" uid="uid://bisyk4bowdvsf" path="res://addons/simple_cards/deck/manager/card_deck_manager.gd" id="3_8unhl"]
 [ext_resource type="Resource" uid="uid://bf07swwidvp6h" path="res://base/spanish_cards/joker_deck.tres" id="4_4ows1"]
 [ext_resource type="Script" uid="uid://d2l8uaoel5whd" path="res://addons/simple_cards/pile/card_pile.gd" id="5_fj3y4"]
 [ext_resource type="Script" uid="uid://cle02hultetj5" path="res://addons/simple_cards/hand/shape/premade_shapes/stack_shape.gd" id="6_7uhre"]
-[ext_resource type="Script" path="res://JokerHand.gd" id="7_fj3y4"]
+[ext_resource type="Script" uid="uid://dwvofbgs8udet" path="res://JokerHand.gd" id="7_fj3y4"]
 [ext_resource type="Resource" uid="uid://j6o1k24stkxd" path="res://LineJokerShape.tres" id="8_fj3y4"]
 
 [sub_resource type="GDScript" id="GDScript_7uhre"]

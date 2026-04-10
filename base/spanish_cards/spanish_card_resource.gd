@@ -2,7 +2,7 @@
 ## and an optional visual modifier. Used by both the Balatro and Solitaire examples.
 class_name SpanishCardResource extends CardResource
 
-@export var order_num: int = 0
+@export var order_num: int = 0 #id
 @export var name: String
 @export var texture: Texture2D
 @export var current_modifier: Modifier = Modifier.NONE

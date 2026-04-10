@@ -30,8 +30,8 @@ func _ready() -> void:
 	
 func _on_select_pressed():
 	if balatro_hand.selected.size()>0:
-		print(str(balatro_hand.selected[0].card_data.value))
-		Global.joker_ids.append( balatro_hand.selected[0].card_data.value)
+		print(str(balatro_hand.selected[0].card_data.order_num))
+		Global.joker_ids.append( balatro_hand.selected[0].card_data.order_num)
 		get_tree().change_scene_to_file("res://base/balatro/Kartas.tscn")
 	
 

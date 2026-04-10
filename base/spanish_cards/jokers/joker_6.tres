@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_r0jks")
+order_num = 6
 name = "x 2"
 texture = ExtResource("3_5jskb")
 joker_mode = 3

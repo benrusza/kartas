@@ -99,7 +99,7 @@ func set_jokers():
 		
 	for joker in jokers._cards:
 		for id in Global.joker_ids:
-			if joker.card_data.value == id:
+			if joker.card_data.order_num == id:
 				jokers_hand.add_card(joker.duplicate())
 	
 	for joker in jokers_hand.cards:
